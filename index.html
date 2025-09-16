@@ -2,13 +2,19 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Acceso con palabra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página con clave</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 100px;
-      background-color: #f0f4f8;
+      background-color: #ccc; /* gris al inicio */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      transition: background-color 1s ease; /* animación suave */
     }
     h1 {
       color: #333;
@@ -16,67 +22,47 @@
     input {
       padding: 10px;
       font-size: 16px;
-      border: 2px solid #333;
-      border-radius: 5px;
-      width: 250px;
+      margin-top: 10px;
     }
     button {
-      margin-left: 10px;
-      padding: 10px 20px;
+      margin-top: 10px;
+      padding: 10px 15px;
       font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      background-color: #0073e6;
-      color: white;
       cursor: pointer;
     }
-    button:hover {
-      background-color: #005bb5;
-    }
     #mensaje {
-      margin-top: 40px;
-      font-size: 20px;
-      color: #222;
-      display: none; /* oculto al inicio */
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      width: 60%;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-      text-align: justify;
+      margin-top: 20px;
+      font-size: 18px;
+      color: white;
+      display: none;
+      max-width: 600px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>¿Cuál es tu nombre? solo en minusculas</h1>
-  <input type="text" id="entrada" placeholder="Escribe aquí...">
+  <h1>¿Cuál es tu nombre?</h1>
+  <input type="text" id="nombre" placeholder="Escribe aquí...">
   <button onclick="verificar()">Enviar</button>
-
-  <div id="mensaje">
-    <!-- Aquí pondrás tu texto largo -->
-    <h2>🎉 ¡Bienvenido! 🎉</h2>
-    <p>
-      Aquí va el texto enorme que quieras escribir.  
-      Puede ser un mensaje secreto, una carta, una explicación larga o lo que quieras compartir.  
-      Solo aparecerá si se escribe la palabra correcta.
-    </p>
-  </div>
+  <p id="mensaje"></p>
 
   <script>
     function verificar() {
-      const palabraClave = "acheirys"; // <-- aquí pones la palabra clave
-      const entrada = document.getElementById("entrada").value.trim().toLowerCase();
+      const clave = "acheirys"; // Cambia esta palabra por tu clave
+      const entrada = document.getElementById("nombre").value.trim();
       const mensaje = document.getElementById("mensaje");
 
-      if (entrada === palabraClave) {
-        mensaje.style.display = "block"; // muestra el texto
+      if (entrada.toLowerCase() === clave.toLowerCase()) {
+        document.body.style.backgroundColor = "purple"; // cambia a morado
+        mensaje.innerHTML = "¡Correcto! 🎉<br><br> Aquí puedes poner un texto largo que quieras mostrar, incluso párrafos completos."; 
+        mensaje.style.display = "block";
       } else {
-        mensaje.style.display = "none"; // no deja avanzar
-        alert("Palabra incorrecta, intenta de nuevo.");
+        mensaje.innerHTML = "Palabra incorrecta. Intenta de nuevo.";
+        mensaje.style.display = "block";
       }
     }
   </script>
 </body>
 </html>
+
+
