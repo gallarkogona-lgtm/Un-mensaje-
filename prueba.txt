@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso con palabra</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #f0f4f8;
+    }
+    h1 {
+      color: #333;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #333;
+      border-radius: 5px;
+      width: 250px;
+    }
+    button {
+      margin-left: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0073e6;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005bb5;
+    }
+    #mensaje {
+      margin-top: 40px;
+      font-size: 20px;
+      color: #222;
+      display: none; /* oculto al inicio */
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Cuál es tu nombre? solo en minusculas</h1>
+  <input type="text" id="entrada" placeholder="Escribe aquí...">
+  <button onclick="verificar()">Enviar</button>
+
+  <div id="mensaje">
+    <!-- Aquí pondrás tu texto largo -->
+    <h2>🎉 ¡Bienvenido! 🎉</h2>
+    <p>
+      Aquí va el texto enorme que quieras escribir.  
+      Puede ser un mensaje secreto, una carta, una explicación larga o lo que quieras compartir.  
+      Solo aparecerá si se escribe la palabra correcta.
+    </p>
+  </div>
+
+  <script>
+    function verificar() {
+      const palabraClave = "acheirys"; // <-- aquí pones la palabra clave
+      const entrada = document.getElementById("entrada").value.trim().toLowerCase();
+      const mensaje = document.getElementById("mensaje");
+
+      if (entrada === palabraClave) {
+        mensaje.style.display = "block"; // muestra el texto
+      } else {
+        mensaje.style.display = "none"; // no deja avanzar
+        alert("Palabra incorrecta, intenta de nuevo.");
+      }
+    }
+  </script>
+</body>
+</html>
