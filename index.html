@@ -12,7 +12,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh; /* permite scroll si hay más texto */
       margin: 0;
       transition: background-color 1s ease; /* animación suave */
       text-align: center;
@@ -37,6 +37,12 @@
       color: black;
       display: none;
       max-width: 600px;
+      text-align: left; /* mejor lectura para texto largo */
+      line-height: 1.5;
+      padding: 20px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
   </style>
 </head>
@@ -54,6 +60,7 @@
 
       if (nombre.toLowerCase() === clave.toLowerCase()) {
         document.body.style.backgroundColor = "purple"; // cambia a morado
+
         mensaje.innerHTML = `
           <h2>Espero no arrepentirme de esto</h2>
           <p> Oh, ehmmm… ¡Hola!</p>
@@ -74,7 +81,12 @@
         `;
         mensaje.style.display = "block";
 
-        // Opcional: ocultar el formulario
+        // Quitar el centrado rígido → deja scroll
+        document.body.style.justifyContent = "flex-start";
+        document.body.style.alignItems = "center";
+        document.body.style.padding = "40px 20px";
+
+        // Ocultar formulario
         document.querySelector("h1").style.display = "none";
         document.querySelector("input").style.display = "none";
         document.querySelector("button").style.display = "none";
@@ -86,8 +98,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
