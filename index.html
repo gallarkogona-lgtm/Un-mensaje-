@@ -35,34 +35,31 @@
       font-size: 18px;
       color: white;
       display: none;
-      max-width: 600px;
-      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>¿Cuál es tu nombre?</h1>
+  <h1>Introduce la clave si quieres leer algo por un buen tiempo 
+  (tu primer nombre en minusculas)</h1>
   <input type="text" id="nombre" placeholder="Escribe aquí...">
   <button onclick="verificar()">Enviar</button>
   <p id="mensaje"></p>
 
   <script>
     function verificar() {
-      const clave = "acheirys"; // Cambia esta palabra por tu clave
-      const entrada = document.getElementById("nombre").value.trim();
+      const clave = "acheirys"; // aquí pones la palabra clave
+      const nombre = document.getElementById("nombre").value.trim();
       const mensaje = document.getElementById("mensaje");
 
-      if (entrada.toLowerCase() === clave.toLowerCase()) {
+      if (nombre.toLowerCase() === clave.toLowerCase()) {
         document.body.style.backgroundColor = "purple"; // cambia a morado
-        mensaje.innerHTML = "¡Correcto! 🎉<br><br> Aquí puedes poner un texto largo que quieras mostrar, incluso párrafos completos."; 
+        mensaje.textContent = "¡Correcto! Bienvenido 🎉";
         mensaje.style.display = "block";
       } else {
-        mensaje.innerHTML = "Palabra incorrecta. Intenta de nuevo.";
+        mensaje.textContent = "Palabra incorrecta. Intenta de nuevo.";
         mensaje.style.display = "block";
       }
     }
   </script>
 </body>
 </html>
-
-
