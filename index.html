@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gracias por entrar</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ccc; /* gris al inicio */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh; /* permite scroll si hay más texto */
-      margin: 0;
-      transition: background-color 1s ease; /* animación suave */
-      text-align: center;
-    }
+   body {
+  font-family: Arial, sans-serif;
+  background-color: #ccc; /* gris al inicio */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* ya no centrado vertical */
+  min-height: 100vh; /* en lugar de height */
+  margin: 0;
+  padding: 20px; /* respiración en celulares */
+  transition: background-color 1s ease;
+  text-align: center;
+} 
     h1 {
       color: #333;
     }
@@ -37,17 +38,17 @@
       color: black;
       display: none;
       max-width: 600px;
-      text-align: left; /* mejor lectura para texto largo */
-      line-height: 1.5;
-      padding: 20px;
-      background: rgba(255,255,255,0.9);
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
+      background: white; /* para destacar el cuadro */
+      padding: 15px;
+      border-radius: 8px;
+      text-align: left;
+      word-wrap: break-word;   /* rompe enlaces largos */
+      overflow-wrap: break-word; /* soporte extra */
+}
   </style>
 </head>
 <body>
-  <h1>Introduce la clave (tu primer nombre en minúsculas)</h1>
+  <h1>Tu primer nombre en minusculas</h1>
   <input type="text" id="nombre" placeholder="Escribe aquí...">
   <button onclick="verificar()">Enviar</button>
   <div id="mensaje"></div>
@@ -99,5 +100,6 @@
   </script>
 </body>
 </html>
+
 
 
