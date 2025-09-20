@@ -6,18 +6,19 @@
   <title>Gracias por entrar</title>
   <style>
    body {
-  font-family: Arial, sans-serif;
-  background-color: #ccc; /* gris al inicio */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* ya no centrado vertical */
-  min-height: 100vh; /* en lugar de height */
-  margin: 0;
-  padding: 20px; /* respiración en celulares */
-  transition: background-color 1s ease;
-  text-align: center;
-} 
+      font-family: Arial, sans-serif;
+      background-color: #ccc; /* gris al inicio */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* ya no centrado vertical */
+      min-height: 100vh; /* en lugar de height */
+      margin: 0;
+      padding: 20px; /* respiración en celulares */
+      transition: background-color 1s ease;
+      text-align: center;
+      overflow-y: auto; /* 👈 permite scroll */
+    } 
     h1 {
       color: #333;
     }
@@ -44,11 +45,16 @@
       text-align: left;
       word-wrap: break-word;   /* rompe enlaces largos */
       overflow-wrap: break-word; /* soporte extra */
-}
+    }
+    #mensaje a {
+      color: blue;
+      text-decoration: underline;
+      word-break: break-word;
+    }
   </style>
 </head>
 <body>
-  <h1>Tu primer nombre en minusculas</h1>
+  <h1>Tu primer nombre en minusculas.</h1>
   <input type="text" id="nombre" placeholder="Escribe aquí...">
   <button onclick="verificar()">Enviar</button>
   <div id="mensaje"></div>
@@ -78,12 +84,17 @@
           <p>Bien, al final de esta página encontraras un enlace a una encuesta de una única pregunta, de ser “no” o no respondes pues fin de todo permanentemente, me encargaré de no recordarte jamás, cortar toda comunicación y no molestarte nunca. De ser “si” pues entonces nos estaremos comunicando por aquí, estaría actualizando la página cada fin de semana y contándote una que otra cosa, pues tengo algunas historias interesantes que, creo yo, te pueden interesar a ti, y con el tiempo ir mejorando esta página, colocar una que otra función extra y volver este sitio un lugar bastante interesante, eso hasta que decida escribirte directamente. Metafóricamente hablando he puesto la mesa y te he mostrado el juego, ¿te animas a jugar también o no? Tu tienes la última palabra.</p>
           <p>Mira, me he negado a pensar muchas cosas dichas por varias personas o cosas que digamos que he notado, pero la cuestión es que tal vez quieras hablar algo, o tal vez no, así que decidí “romper la barrera” y tratar de hacer algo. Suena raro, es raro, yo soy raro pues trato de ser diferente y no dar un mensaje porque sí, igualmente yo no pierdo nada haciendo esto y tampoco pienso ganar algo al respecto.</p>
           <p>Al inicio me hiciste caso en ciertas cosas que te pedí que hicieras y aunque al final fue atrevido de tu parte no hacerlas, jamás vi una mala intención de tu parte, aunque hoy no sé cuál es tu objetivo en todo esto o soy yo intentando buscar algo lógico. Igual ya no me molesta.</p>
-          <p>Aquí el enlace: https://docs.google.com/forms/d/e/1FAIpQLSdFvB5MU3pL1x6YFtZiH8X4PmriaAE9iOHZJjFOEh1WpZQ59w/viewform?usp=header </p>
+          <p>
+            Aquí el enlace: 
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFvB5MU3pL1x6YFtZiH8X4PmriaAE9iOHZJjFOEh1WpZQ59w/viewform?usp=header" target="_blank">
+              Ir a la encuesta
+            </a>
+          </p>
           <p>Independientemente de cual haya sido tu decisión…. Gracias.</p>
         `;
         mensaje.style.display = "block";
 
-        // Quitar el centrado rígido → deja scroll
+        // Ajustar layout tras mostrar el mensaje
         document.body.style.justifyContent = "flex-start";
         document.body.style.alignItems = "center";
         document.body.style.padding = "40px 20px";
@@ -100,6 +111,3 @@
   </script>
 </body>
 </html>
-
-
-
